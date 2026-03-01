@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { GoogleGenerativeAI } from '@google/generative-ai'
+import { GoogleGenerativeAI, type Part } from '@google/generative-ai'
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY ?? '')
 
@@ -35,7 +35,7 @@ Generate a photorealistic image showing this EXACT object converted into a lamp:
 
 Style: warm natural light, plain white or light grey background, clean product photograph.`
 
-    const parts: object[] = [{ text: prompt }]
+    const parts: Part[] = [{ text: prompt }]
 
     if (imageFile) {
       const arrayBuffer = await imageFile.arrayBuffer()
